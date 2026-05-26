@@ -9,9 +9,11 @@ typedef struct {
 
 }DynamicArray;
 
-DynamicArray* CreateDynamicArray();
+DynamicArray* createDynamicArray();
 void append(DynamicArray* a, Element value);
-void FreeDynamicArray(DynamicArray* a);
+void freeDynamicArray(DynamicArray* a);
+void printAllElements(DynamicArray* a);
+Element deleteLast(DynamicArray* a);
 
 
 

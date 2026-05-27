@@ -7,6 +7,7 @@ typedef struct {
     int size;//current size
     int capacity;// total 
 
+
 }DynamicArray;
 
 DynamicArray* createDynamicArray();
@@ -14,7 +15,8 @@ void append(DynamicArray* a, Element value);
 void freeDynamicArray(DynamicArray* a);
 void printAllElements(DynamicArray* a);
 Element deleteLast(DynamicArray* a);
-
+Element get(DynamicArray* a, int index);
+void set(DynamicArray* a, int index, int value);
 
 
 #endif

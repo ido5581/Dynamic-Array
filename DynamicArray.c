@@ -6,7 +6,7 @@ DynamicArray* createDynamicArray(){
     DynamicArray* a = (DynamicArray*)malloc(sizeof(DynamicArray));
     a->size = 0;
     a->capacity = 0;
-    a->array = NULL;
+    a->array = NULL;  
     return a;
 }
 
@@ -50,4 +50,21 @@ Element deleteLast(DynamicArray* a){
     Element temp = a->array[a->size-1];
     a->size--;
     return temp;
+}
+
+Element get(DynamicArray* a, int index){
+    if( a== NULL||index < 0 || index >= a->size){
+        Element x;
+        x.value = -1;
+        return x;
+    }
+    Element temp =a->array[index];//*(a->array+index)
+    return temp;
+}
+
+void set(DynamicArray* a, int index, int value){
+    if( a== NULL||index < 0 || index >= a->size){
+        return;
+    }
+    a->array[index].value = value;
 }

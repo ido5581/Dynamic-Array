@@ -85,3 +85,15 @@ void insertAt(DynamicArray* a, int index, Element value){
         a->array[index] = value;
     }
 }
+
+void deleteAt(DynamicArray* a, int index){
+    if(a == NULL || index < 0 || index > a->size) return;
+    if(index == a->size - 1){
+        deleteLast(a);
+        return;
+    }
+    for(int i = index; i < a->size; i++){
+        a->array[i] = a->array[i+1];
+    }
+    a->size--;
+}

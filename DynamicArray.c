@@ -63,8 +63,25 @@ Element get(DynamicArray* a, int index){
 }
 
 void set(DynamicArray* a, int index, int value){
-    if( a== NULL||index < 0 || index >= a->size){
+    if( a== NULL||index < 0 || index > a->size){
         return;
     }
     a->array[index].value = value;
+}
+void insertAt(DynamicArray* a, int index, Element value){
+    if( a == NULL || index > a->size || index < 0) return;
+    else if( index == a->size) append(a, value);
+    else{// 0<index < size
+        if (a->size == a->capacity){
+            a->capacity *= 2;
+            Element* temp = (Element*)realloc(a->array,a->capacity*sizeof(Element));
+            if(temp == NULL){return;}
+            a->array = temp;
+        }
+        a->size++;
+        for(int i = a->size; i > index; i--){
+            a->array[i] = a->array[i-1];
+        }
+        a->array[index] = value;
+    }
 }
